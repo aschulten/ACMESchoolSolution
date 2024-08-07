@@ -1,0 +1,5 @@
+{"Type":"Student","Entity":{"Age":38,"Id":4,"Name":"Alejandro"}}
+{"Type":"Student","Entity":{"Age":33,"Id":7,"Name":"Pedro"}}
+{"Type":"Course","Entity":{"Fee":0.0,"StartDate":"2024-08-13T00:00:00","EndDate":"2024-08-18T00:00:00","Students":[{"Age":38,"Id":4,"Name":"Alejandro"}],"Id":5,"Name":"Main course"}}
+{"Type":"Student","Entity":{"Age":32,"Id":8,"Name":"Maria"}}
+{"Type":"Course","Entity":{"Fee":300.0,"StartDate":"2024-09-15T00:00:00","EndDate":"2024-09-30T00:00:00","Students":[],"Id":6,"Name":"Secondary course"}}

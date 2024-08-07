@@ -14,19 +14,47 @@ namespace ACMESchool.Domain.Services
 
         public void SaveStudent(Student student)
         {
-            _studentRepository.SaveStudent(student);
+            if (student != null)
+            {
+                _studentRepository.SaveStudent(student);
+            }
+            else
+            {
+                throw new ArgumentNullException(nameof(student));
+            }
         }
         public void UpdateStudent(Student student)
         {
-            _studentRepository.UpdateStudent(student);
+            if (student != null)
+            {
+                _studentRepository.UpdateStudent(student);
+            }
+            else
+            {
+                throw new ArgumentNullException(nameof(student));
+            }
         }
         public void DeleteStudent(int id)
         {
-            _studentRepository.DeleteStudent(id);
+            if (id != 0)
+            {
+                _studentRepository.DeleteStudent(id);
+            }
+            else
+            {
+                throw new ArgumentException();
+            }
         }
         public Student GetStudentById(int id)
         {
-            return _studentRepository.GetStudentById(id);
+            if (id != 0)
+            {
+                return _studentRepository.GetStudentById(id);
+            }
+            else
+            {
+                throw new ArgumentException();
+            }
         }
 
         public List<Student> GetAllStudents()

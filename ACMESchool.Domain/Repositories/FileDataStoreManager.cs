@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace ACMESchool.Domain.Repositories
 {
-    public class FileDataStoreManager : IStudentRepository, ICourseRepository
+    public class FileDataStoreManager : IDataStoreManager, IStudentRepository, ICourseRepository
     {
         private readonly string filePath;
 

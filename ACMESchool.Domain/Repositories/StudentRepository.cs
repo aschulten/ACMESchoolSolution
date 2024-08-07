@@ -4,9 +4,9 @@ namespace ACMESchool.Domain.Repositories
 {
     public class StudentRepository : IStudentRepository
     {
-        private readonly FileDataStoreManager _fileDataStore;
+        private readonly IDataStoreManager _fileDataStore;
 
-        public StudentRepository(FileDataStoreManager dataStore)
+        public StudentRepository(IDataStoreManager dataStore)
         {
             _fileDataStore = dataStore;
         }

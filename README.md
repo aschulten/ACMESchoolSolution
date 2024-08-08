@@ -20,3 +20,9 @@
 * Me hubiera gustado hacer un repaso exhaustivo de todo el código, especialmente en las áreas de validación y manejo de excepciones, para asegurarse de que todas las rutas de código sean robustas y fácilmente mantenibles.
 * La implementación del gateway de pago podría incluir validaciones más estrictas y mejor manejo de errores.
 * El testing podría haber cubierto más casos de borde, como la validación de entradas inválidas, para asegurar la fiabilidad de la aplicación.
+
+
+## Cuestiones adicionales
+* El tiempo dedicado al proyecto fue de aproximadamente 24 horas, distribuidas entre investigación, desarrollo y testing.
+* Dedique varias horas a investigar la arquitectura más conveniente para este proyecto, evaluando diferentes enfoques para asegurarme de que el diseño fuera escalable y mantenible.
+* Aunque no enfrenté temas completamente nuevos durante el proyecto, me resultó valioso trabajar fuera de las tecnologías que utilizo comúnmente en mi día a día (como la implementación de APIs, microservicios y bases de datos). Esto me permitió enfocarme en otros aspectos del desarrollo y mejorar mi comprensión de áreas menos exploradas en mi trabajo actual.

@@ -1,4 +1,5 @@
 ﻿using ACMESchool.Domain.Entities;
+using ACMESchool.Domain.Exceptions;
 using ACMESchool.Domain.Repositories;
 
 namespace ACMESchool.Domain.Services
@@ -6,10 +7,12 @@ namespace ACMESchool.Domain.Services
     public class CourseService : ICourseRepository
     {
         private readonly ICourseRepository _courseRepository;
+        private readonly IPaymentGateway _paymentGateway;
 
-        public CourseService( ICourseRepository courseRepository)
+        public CourseService( ICourseRepository courseRepository, IPaymentGateway paymentGateway)
         {
             _courseRepository = courseRepository;
+            _paymentGateway = paymentGateway;
         }
 
         public void SaveCourse(Course course)
@@ -59,6 +62,11 @@ namespace ACMESchool.Domain.Services
 
         public void AssignStudentToCourse(Student student, Course course)
         {
+            if (course.Fee > 0)
+            {
+                ProcessCoursePayment(course.Fee);
+            }
+
             course.Students.Add(student);
             UpdateCourse(course);
         }
@@ -74,6 +82,14 @@ namespace ACMESchool.Domain.Services
             return GetAllCourses()
                 .Where(course => course.StartDate.Date >= startDate.Date && course.EndDate.Date <= endDate.Date)
                 .ToList();
+        }
+
+        private void ProcessCoursePayment(decimal fee)
+        {
+            if (!_paymentGateway.ProcessPayment(fee))
+            {
+                throw new PaymentProcessingException("Payment could not be processed");
+            }
         }
     }
 }

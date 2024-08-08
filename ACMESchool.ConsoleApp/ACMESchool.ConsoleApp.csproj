@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ACMESchool.Domain\ACMESchool.Domain.csproj" />
+    <ProjectReference Include="..\ACMESchool.Tests\ACMESchool.Tests.csproj" />
   </ItemGroup>
 
 </Project>

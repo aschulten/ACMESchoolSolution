@@ -78,6 +78,7 @@ namespace ACMESchool.Domain.Repositories
         {
             try
             {
+                var entity = GetEntityById<T>(id);
                 var newLines = File.ReadLines(filePath)
                                    .Where(line =>
                                    {

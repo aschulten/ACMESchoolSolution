@@ -1,6 +1,7 @@
 ﻿using ACMESchool.Domain.Repositories;
 using ACMESchool.Domain.Services.Validations;
 using ACMESchool.Domain.Services;
+using ACMESchool.Tests.TestHelpers;
 
 namespace ACMESchool.ConsoleApp
 {
@@ -12,10 +13,10 @@ namespace ACMESchool.ConsoleApp
             string solutionDirectory = Directory.GetParent(currentDirectory).Parent.Parent.Parent.FullName;
             string dataFilePath = Path.Combine(solutionDirectory, "DataFile.txt");
             FileDataStoreManager dataStore = new FileDataStoreManager(dataFilePath);
-
+            MockPaymentGateway mockPaymentGateway = new MockPaymentGateway();
             CourseValidationService courseValidationService = new CourseValidationService();
             CourseRepository courseRepository = new CourseRepository(dataStore);
-            CourseService courseService = new CourseService(courseRepository);
+            CourseService courseService = new CourseService(courseRepository, mockPaymentGateway);
             StudentValidationService studentValidationService = new StudentValidationService();
             StudentRepository studentRepository = new StudentRepository(dataStore);
             StudentService studentService = new StudentService(studentRepository);

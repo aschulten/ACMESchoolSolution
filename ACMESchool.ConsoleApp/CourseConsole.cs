@@ -2,16 +2,16 @@
 using ACMESchool.Domain.Repositories;
 using ACMESchool.Domain.Services;
 using ACMESchool.Domain.Services.Validations;
-using System;
 
 namespace ACMESchool.ConsoleApp
 {
-    class CourseConsole
+    internal class CourseConsole
     {
         private readonly CourseService _courseService;
         private readonly CourseValidationService _courseValidationService;
         private readonly IdGenerator _idGenerator;
         private readonly StudentService _studentService;
+
         public CourseConsole(CourseService courseService, IdGenerator idGenerator, CourseValidationService courseValidationService, StudentService studentService)
         {
             _courseService = courseService;
@@ -26,35 +26,44 @@ namespace ACMESchool.ConsoleApp
             var option = Console.ReadLine();
             var op = option;
             while (true)
-            {                
+            {
                 switch (op)
                 {
                     case "1":
                         CreateCourse();
                         break;
+
                     case "2":
                         ListCourses();
                         break;
+
                     case "3":
                         SearchCourse();
                         break;
+
                     case "4":
                         UpdateCourse();
                         break;
+
                     case "5":
                         DeleteCourse();
                         break;
+
                     case "6":
                         AssignStudentToCourse();
                         break;
+
                     case "7":
                         UnassignStudentFromCourse();
                         break;
+
                     case "8":
                         GetFilteredByDates();
                         break;
+
                     case "0":
                         return;
+
                     default:
                         Console.WriteLine("Invalid Option");
                         break;
@@ -75,7 +84,7 @@ namespace ACMESchool.ConsoleApp
             Console.WriteLine("Enter the end date (yyyy-MM-dd):");
             var endDate = DateTime.Parse(Console.ReadLine());
             var id = _idGenerator.GetNextCourseId();
-            var course = new Course { Id = id,Name = name, Fee = fee, StartDate = startDate, EndDate = endDate };
+            var course = new Course { Id = id, Name = name, Fee = fee, StartDate = startDate, EndDate = endDate };
             var errors = _courseValidationService.ValidateCourse(course);
             if (errors.Count != 0)
             {
@@ -159,6 +168,7 @@ namespace ACMESchool.ConsoleApp
             var id = int.Parse(Console.ReadLine());
             _courseService.DeleteCourse(id);
         }
+
         public void AssignStudentToCourse()
         {
             Console.WriteLine("Enter the student Id:");
@@ -215,7 +225,7 @@ namespace ACMESchool.ConsoleApp
                 var courses = _courseService.GetFilteredByDates(startDate, endDate);
 
                 if (courses.Any())
-                {                    
+                {
                     foreach (var course in courses)
                     {
                         Console.WriteLine("Courses found:");

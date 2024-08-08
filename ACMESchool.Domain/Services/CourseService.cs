@@ -9,7 +9,7 @@ namespace ACMESchool.Domain.Services
         private readonly ICourseRepository _courseRepository;
         private readonly IPaymentGateway _paymentGateway;
 
-        public CourseService( ICourseRepository courseRepository, IPaymentGateway paymentGateway)
+        public CourseService(ICourseRepository courseRepository, IPaymentGateway paymentGateway)
         {
             _courseRepository = courseRepository;
             _paymentGateway = paymentGateway;
@@ -38,6 +38,7 @@ namespace ACMESchool.Domain.Services
                 throw new ArgumentNullException();
             }
         }
+
         public List<Course> GetAllCourses()
         {
             return _courseRepository.GetAllCourses();

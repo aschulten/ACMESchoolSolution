@@ -170,19 +170,24 @@ namespace ACMESchool.Domain.Repositories
             }
         }
 
-
         public void SaveStudent(Student student) => SaveEntity(student);
+
         public Student GetStudentById(int id) => GetEntityById<Student>(id);
+
         public void DeleteStudent(int id) => DeleteEntity<Student>(id);
+
         public void UpdateStudent(Student student) => UpdateEntity(student);
+
         public List<Student> GetAllStudents() => GetAllEntities<Student>();
 
-
         public void SaveCourse(Course course) => SaveEntity(course);
-        public Course GetCourseById(int id) => GetEntityById<Course>(id);
-        public void DeleteCourse(int id) => DeleteEntity<Course>(id);
-        public void UpdateCourse(Course course) => UpdateEntity(course);
-        public List<Course> GetAllCourses() => GetAllEntities<Course>();
 
+        public Course GetCourseById(int id) => GetEntityById<Course>(id);
+
+        public void DeleteCourse(int id) => DeleteEntity<Course>(id);
+
+        public void UpdateCourse(Course course) => UpdateEntity(course);
+
+        public List<Course> GetAllCourses() => GetAllEntities<Course>();
     }
 }

@@ -23,6 +23,7 @@ namespace ACMESchool.Domain.Services
                 throw new ArgumentNullException(nameof(student));
             }
         }
+
         public void UpdateStudent(Student student)
         {
             if (student != null)
@@ -34,6 +35,7 @@ namespace ACMESchool.Domain.Services
                 throw new ArgumentNullException(nameof(student));
             }
         }
+
         public void DeleteStudent(int id)
         {
             if (id != 0)
@@ -45,6 +47,7 @@ namespace ACMESchool.Domain.Services
                 throw new ArgumentException();
             }
         }
+
         public Student GetStudentById(int id)
         {
             if (id != 0)

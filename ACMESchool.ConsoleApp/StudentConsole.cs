@@ -5,11 +5,12 @@ using ACMESchool.Domain.Services.Validations;
 
 namespace ACMESchool.ConsoleApp
 {
-    class StudentConsole
+    internal class StudentConsole
     {
         private readonly StudentService _studentService;
         private readonly StudentValidationService _studentValidationService;
         private readonly IdGenerator _idGenerator;
+
         public StudentConsole(StudentService studentService, StudentValidationService studentValidationService, IdGenerator idGenerator)
         {
             _studentService = studentService;
@@ -19,7 +20,6 @@ namespace ACMESchool.ConsoleApp
 
         public void Run()
         {
-            
             while (true)
             {
                 Console.WriteLine("Select an option to do with students (1) Create, (2) List, (3) Search, (4) Update, (5) Delete, (0) Exit");
@@ -29,20 +29,26 @@ namespace ACMESchool.ConsoleApp
                     case "1":
                         CreateStudent();
                         break;
+
                     case "2":
                         ListStudents();
                         break;
+
                     case "3":
                         SearchStudent();
                         break;
+
                     case "4":
                         UpdateStudent();
                         break;
+
                     case "5":
                         DeleteStudent();
                         break;
+
                     case "0":
                         return;
+
                     default:
                         Console.WriteLine("Invalid option");
                         break;
@@ -107,7 +113,7 @@ namespace ACMESchool.ConsoleApp
                 var name = Console.ReadLine();
                 Console.WriteLine("Enter new students age:");
                 var age = int.Parse(Console.ReadLine());
-                
+
                 student.Name = name;
                 student.Age = age;
 

@@ -12,7 +12,7 @@ namespace ACMESchool.Tests.Esceptions
 
             var exception = new PaymentProcessingException();
 
-            Assert.Equal(defaultMessage,exception.Message);
+            Assert.Equal(defaultMessage, exception.Message);
         }
 
         [Fact]

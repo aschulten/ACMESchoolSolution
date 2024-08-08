@@ -1,6 +1,6 @@
 ﻿using ACMESchool.Domain.Services.Validations;
-using Xunit;
 using ACMESchool.Tests.TestHelpers;
+using Xunit;
 
 namespace ACMESchool.Tests.Services.Validations
 {
@@ -53,7 +53,6 @@ namespace ACMESchool.Tests.Services.Validations
             Assert.Empty(errors);
         }
 
-
         [Fact]
         public void ValidateDatesFilter_StartDateIsAfterEndDate_ReturnsError()
         {
@@ -65,6 +64,5 @@ namespace ACMESchool.Tests.Services.Validations
             Assert.Single(errors);
             Assert.Contains("End date must be equal to or greater than start date", errors);
         }
-
     }
 }
